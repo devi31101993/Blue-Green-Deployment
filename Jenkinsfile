@@ -35,15 +35,18 @@ pipeline {
                 sh "mvn package -DskipTests=true"
             }
         }
-         stage('Docker Build & tag image') {
-            steps {
-                script{
-                    withDockerRegistry(credentialsId: 'jenkins-docker-creds') {
-                        sh "docker build -t ${IMAGE_NAME}:${TAG} ."
-                    }
-                }
-            }
-        }
     }
 }
+
+//          stage('Docker Build & tag image') {
+//             steps {
+//                 script{
+//                     withDockerRegistry(credentialsId: 'jenkins-docker-creds') {
+//                         sh "docker build -t ${IMAGE_NAME}:${TAG} ."
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
         
