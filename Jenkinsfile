@@ -41,7 +41,7 @@ pipeline {
          stage('Docker Build & tag image') {
             steps {
                 script{
-                    withDockerRegistry(credentialsId: 'docker-creds') {
+                    withDockerRegistry(credentialsId: 'docker-credentials') {
                         sh "docker build -t ${IMAGE_NAME}:${TAG} ."
             }
         }
